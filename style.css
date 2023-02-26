@@ -144,12 +144,12 @@
     z-index: 1;
 }
 .btn-start, .btn-stop{
+    color: #000;
     font-family: 'Fragmentcore';
     background-color: transparent;
     border: none;
     border-radius: 50%;
     font-size: 1.2rem;
-    /* opacity: 0.5; */
     text-align: center;
     outline: none;
     cursor: pointer;
