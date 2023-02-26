@@ -120,6 +120,7 @@
     border: 0;
     background-image: url('img/logo-short-cream.svg');
     background-color: transparent;
+    box-shadow: none;
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
@@ -132,6 +133,7 @@
     border: 0;
     background-image: url('img/logo-short-cream.svg');
     background-color: transparent;
+    box-shadow: none;
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
