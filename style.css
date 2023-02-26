@@ -1,0 +1,275 @@
+@font-face {
+    font-family: 'Misto';
+    src: url('fonts/Misto.eot');
+    src: url('fonts/Misto.eot') format('embedded-opentype'),
+         url('fonts/Misto.woff2') format('woff2'),
+         url('fonts/Misto.woff') format('woff'),
+         url('fonts/Misto.ttf') format('truetype'),
+         url('fonts/Misto.svg#Misto') format('svg');
+}
+@font-face {
+    font-family: 'Fragmentcore';
+    src: url('fonts/Fragmentcore.otf');
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+    height: 100vh;
+    width: 100%;
+}
+.h1{
+    font-family: 'Misto';
+    text-align: center;
+    font-size: 36px;
+    padding: 20px;
+    opacity: 0.4;
+}
+.main{
+    height: 80%;
+    width: 95%;
+    max-width: 300px;
+    max-height: 600px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.chrono{
+    font-family: 'Misto';
+    font-size: 100px;
+    opacity: 0.05;
+    width: 100%;
+    max-width: 300px;
+    height: 120px;
+    line-height: 120px;
+    text-align: center;
+    margin: 0 auto;
+}
+.ring{
+    position: absolute;
+    opacity: 0.2;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.form{
+    height: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.paused {
+    animation-play-state: paused;
+}
+
+.buttons{
+    height: 140px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.btn-stop, .btn-start{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 83%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.5;
+}
+.label-btn-slider{
+    display: block;
+}
+.slide-container {
+    width: 300px;
+}
+.label{
+    font-family: 'Fragmentcore';
+}
+.btn-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 5px;
+    background: #FFFFFF;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+.btn-slider:hover {
+    opacity: 1; 
+}
+
+.btn-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 32px;
+    border: 0;
+    background-image: url('img/logo-short-cream.svg');
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.btn-slider::-moz-range-thumb {
+    width: 30px;
+    height: 32px;
+    border: 0;
+    background-image: url('img/logo-short-cream.svg');
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.btn-start, .btn-stop, .checkbox{
+    opacity: 1;
+    z-index: 1;
+}
+.btn-start, .btn-stop{
+    font-family: 'Fragmentcore';
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    opacity: 0.5;
+    text-align: center;
+    outline: none;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+    box-shadow: -3px -3px 20px rgba(255, 255, 255, .4),
+                -6px -6px 10px rgba(255, 255, 255, .3),
+                6px 6px 8px rgba(255, 255, 255, .075),
+                6px 6px 10px rgba(0, 0, 0, .15);
+}
+.btn-start:hover, .btn-stop:hover {
+box-shadow: -2px -2px 6px rgba(255, 255, 255, .6),
+            -2px -2px 4px rgba(255, 255, 255, .4),
+            2px 2px 2px rgba(255, 255, 255, .05),
+            2px 2px 4px rgba(0, 0, 0, .1);
+}
+.btn-start:active, .btn-stop:active {
+box-shadow: inset -2px -2px 6px rgba(255, 255, 255, .7),
+            inset -2px -2px 4px rgba(255, 255, 255, .5),
+            inset 2px 2px 2px rgba(255, 255, 255, .075),
+            inset 2px 2px 4px rgba(0, 0, 0, .15);
+}
+
+.startHideBtn, .stopHideBtn, .sliderHideBtn, .labelSliderHide, .checkboxHide, .labelCheckboxHide, .formHide, .ringHide{
+    opacity: -1;
+    z-index: -1;
+}
+.checkbox{
+    width: 120px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    margin: 5px auto;
+}
+input[type="checkbox"]:focus {
+    outline: max(2px, 0.15em) solid currentColor;
+    outline-offset: max(2px, 0.15em);
+}
+@keyframes rotate {
+    0% {transform:rotate(0deg);}
+    100% {transform:rotate(360deg);}
+}
+@keyframes gradient {
+    0% { background-position: 10% 50%; }
+	50% { background-position: 100% 50%; }
+	100% { background-position: 10% 50%; }
+}
+.respire-55{
+    animation: respire_55 10s linear infinite;
+    transform-origin: center;
+}
+@keyframes respire_55{
+    0%{
+        transform: translateX(-50%);
+        scale: 1;
+        border: 1px solid #000;
+    }
+    50%{
+        transform: translateX(-28%);
+        scale: 1.6;
+        border: 5px solid #000;
+    }
+    100%{
+        transform: translateX(-50%);
+        scale: 1;
+        border: 1px solid #000;
+    }
+}
+.respire-46{
+    animation: respire_46 10s linear infinite ;
+}
+@keyframes respire_46{
+    0%{
+        transform: translateX(-50%);
+        scale: 1;
+        border: 1px solid #000;
+    }
+    40%{
+        transform: translateX(-28%);
+        scale: 1.6;
+        border: 5px solid #000;
+    }
+    100%{
+        transform: translateX(-50%);
+        scale: 1;
+        border: 1px solid #000;
+    }
+}
+.respire-64{
+    animation: respire_64 10s linear infinite ;
+}
+@keyframes respire_64{
+    0%{
+        transform: translateX(-50%);
+        scale: 1;
+        border: 1px solid #000;
+    }
+    60%{
+        transform: translateX(-28%);
+        scale: 1.6;
+        border: 5px solid #000;
+    }
+    100%{
+        transform: translateX(-50%);
+        scale: 1;
+        border: 1px solid #000;
+    }
+}
+@media screen and (min-width: 410px) {
+    .main{
+        width: 350px;
+    }
+}
+@media screen and (min-width: 450px) {
+    .main{
+        max-width: 400px;
+    }
+}
+@media screen and (min-width: 700px) {
+    .h1{
+        font-size: 40px;
+    }
+    .btn-stop, .btn-start{
+        top: 80%;
+        width: 100px;
+        height: 100px;
+    }
+}
