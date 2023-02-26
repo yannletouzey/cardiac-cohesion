@@ -17,7 +17,13 @@
     box-sizing: border-box;
 }
 .body {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background: linear-gradient(
+        -45deg, 
+        #fab7a3, 
+        #f893b9, 
+        #84d9f8, 
+        #6ff8d8
+    );
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
     height: 100vh;
@@ -26,15 +32,15 @@
 .h1{
     font-family: 'Misto';
     text-align: center;
-    font-size: 36px;
-    padding: 20px;
+    font-size: 25px;
+    padding: 15px;
     opacity: 0.4;
 }
 .main{
     height: 80%;
-    width: 95%;
-    max-width: 300px;
-    max-height: 600px;
+    width: 90%;
+    max-width: 400px;
+    max-height: 800px;
     margin: 0 auto;
     text-align: center;
     display: flex;
@@ -47,12 +53,12 @@
     opacity: 0.05;
     width: 100%;
     max-width: 300px;
-    height: 120px;
-    line-height: 120px;
+    height: 30%;
     text-align: center;
     margin: 0 auto;
 }
 .ring{
+    border: 1px solid #000;
     position: absolute;
     opacity: 0.2;
     border-radius: 50%;
@@ -63,7 +69,7 @@
     transform: translate(-50%, -50%);
 }
 .form{
-    height: 60%;
+    height: 50%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -74,18 +80,15 @@
 }
 
 .buttons{
-    height: 140px;
+    height: 20%;
     width: 100%;
     display: flex;
     align-items: center;
 }
-.btn-stop, .btn-start{
-    position: absolute;
+.btn{
     width: 80px;
     height: 80px;
-    top: 83%;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: auto;
     opacity: 0.5;
 }
 .label-btn-slider{
@@ -139,11 +142,11 @@
     background-repeat: no-repeat;
     cursor: pointer;
 }
-.btn-start, .btn-stop, .checkbox{
+.btn, .checkbox{
     opacity: 1;
     z-index: 1;
 }
-.btn-start, .btn-stop{
+.btn{
     color: #000;
     font-family: 'Fragmentcore';
     background-color: transparent;
@@ -159,20 +162,25 @@
                 6px 6px 8px rgba(255, 255, 255, .075),
                 6px 6px 10px rgba(0, 0, 0, .15);
 }
-.btn-start:hover, .btn-stop:hover {
-box-shadow: -2px -2px 6px rgba(255, 255, 255, .6),
-            -2px -2px 4px rgba(255, 255, 255, .4),
-            2px 2px 2px rgba(255, 255, 255, .05),
-            2px 2px 4px rgba(0, 0, 0, .1);
+.btn:hover {
+    box-shadow: -2px -2px 6px rgba(255, 255, 255, .6),
+                -2px -2px 4px rgba(255, 255, 255, .4),
+                2px 2px 2px rgba(255, 255, 255, .05),
+                2px 2px 4px rgba(0, 0, 0, .1);
 }
-.btn-start:active, .btn-stop:active {
-box-shadow: inset -2px -2px 6px rgba(255, 255, 255, .7),
-            inset -2px -2px 4px rgba(255, 255, 255, .5),
-            inset 2px 2px 2px rgba(255, 255, 255, .075),
-            inset 2px 2px 4px rgba(0, 0, 0, .15);
+.btn:active {
+    box-shadow: inset -2px -2px 6px rgba(255, 255, 255, .7),
+                inset -2px -2px 4px rgba(255, 255, 255, .5),
+                inset 2px 2px 2px rgba(255, 255, 255, .075),
+                inset 2px 2px 4px rgba(0, 0, 0, .15);
 }
-
-.startHideBtn, .stopHideBtn, .sliderHideBtn, .labelSliderHide, .checkboxHide, .labelCheckboxHide, .formHide, .ringHide{
+.startHideBtn, 
+.sliderHideBtn, 
+.labelSliderHide, 
+.checkboxHide, 
+.labelCheckboxHide, 
+.formHide, 
+.ringHide{
     opacity: -1;
     z-index: -1;
 }
@@ -271,9 +279,14 @@ input[type="checkbox"]:focus {
     .h1{
         font-size: 40px;
     }
-    .btn-stop, .btn-start{
+    .btn{
         top: 80%;
         width: 100px;
         height: 100px;
+    }
+}
+@media screen and (min-width: 700px) and (min-height: 800px) {
+    .main{
+        margin-top: 20px;
     }
 }
