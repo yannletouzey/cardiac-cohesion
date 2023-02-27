@@ -22,7 +22,6 @@ btn.addEventListener("click", () => {
     });
 });
 
-
 chrono.textContent = `${minutes}:00`
 
 btn_slider.oninput = function() {
@@ -30,22 +29,17 @@ btn_slider.oninput = function() {
     minutes = addZero(this.value)
 }
 
-
-form.classList.remove('formHide')
-checkboxs.classList.remove('checkboxHide')
-labelCheckbox.classList.remove('labelCheckboxHide')
-ring.classList.add('ringHide')
-body.classList.add('paused')
+ring.classList.add('hide')
 
 const chronoStart = () => {
     if (chronoIsStop) {
         chronoIsStop = false
-        btn_slider.classList.add('sliderHideBtn')
-        label_slider.classList.add('labelSliderHide')
-        checkboxs.classList.add('checkboxHide')
-        labelCheckbox.classList.add('labelCheckboxHide')
-        form.classList.add('formHide')
-        ring.classList.remove('ringHide')
+        btn_slider.classList.add('hide')
+        label_slider.classList.add('hide')
+        checkboxs.classList.add('hide')
+        labelCheckbox.classList.add('hide')
+        form.classList.add('hide')
+        ring.classList.remove('hide')
         body.classList.remove('paused')
         time()
     }
@@ -53,12 +47,12 @@ const chronoStart = () => {
 
 const chronoStop = () => {
     if (!chronoIsStop) {
-        checkboxs.classList.remove('checkboxHide')
-        btn_slider.classList.remove('sliderHideBtn')
-        label_slider.classList.remove('labelSliderHide')
-        labelCheckbox.classList.remove('labelCheckboxHide')
-        form.classList.remove('formHide')
-        ring.classList.add('ringHide')
+        checkboxs.classList.remove('hide')
+        btn_slider.classList.remove('hide')
+        label_slider.classList.remove('hide')
+        labelCheckbox.classList.remove('hide')
+        form.classList.remove('hide')
+        ring.classList.add('hide')
         body.classList.add('paused')
 
         minutes = btn_slider.value
@@ -107,12 +101,12 @@ const time = () => {
         chrono.textContent = `${minutes}:${addZero(secondes)}`
         console.log(respireSeconde);
         clearTimeout(timeout)
-        ring.classList.add('ringHide')
+        ring.classList.add('hide')
         body.classList.add('paused')
-        btn_slider.classList.remove('sliderHideBtn')
-        label_slider.classList.remove('labelSliderHide')
-        labelCheckbox.classList.remove('labelCheckboxHide')
-        form.classList.remove('formHide')
+        btn_slider.classList.remove('hide')
+        label_slider.classList.remove('hide')
+        labelCheckbox.classList.remove('hide')
+        form.classList.remove('hide')
 
         if (ring.classList.contains('respire-55')) {
             ring.classList.remove('respire-55')
@@ -121,7 +115,7 @@ const time = () => {
         } else if (ring.classList.contains('respire-64')) {
             ring.classList.remove('respire-64')
         }
-        checkboxs.classList.remove('checkboxHide')
+        checkboxs.classList.remove('hide')
         btn.setAttribute('value', "Start")
     } else {
         timeout = setTimeout(time, 1000)
