@@ -73,12 +73,13 @@ const time = () => {
     }
 
     chrono.textContent = `${minutes}:${addZero(secondes)}`
-
+    
     if (minutes == 0 && secondes == 0) {
         chronoIsStop = true
         minutes = btn_slider.value
         secondes = 0
         chrono.textContent = `${minutes}:${addZero(secondes)}`
+        console.log(respireSeconde);
         clearTimeout(timeout)
         ring.classList.add('hide')
         body.classList.add('paused')
