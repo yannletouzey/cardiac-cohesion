@@ -1,11 +1,7 @@
-// const slider = document.getElementById("btn-slider");
 const chrono = document.getElementById('chrono')
 const ring = document.getElementById('ring')
 const btn = document.getElementById('btn')
 const btn_slider = document.getElementById('btn-slider')
-const label_slider = document.getElementById('label-btn-slider')
-const checkboxs = document.getElementById('checkboxs')
-const labelCheckbox = document.getElementById('label-checkbox')
 const form = document.getElementById('form')
 const body = document.querySelector('body')
 const radio = document.querySelectorAll('.radio')
@@ -34,27 +30,12 @@ ring.classList.add('hide')
 const chronoStart = () => {
     if (chronoIsStop) {
         chronoIsStop = false
-        btn_slider.classList.add('hide')
-        label_slider.classList.add('hide')
-        checkboxs.classList.add('hide')
-        labelCheckbox.classList.add('hide')
-        form.classList.add('hide')
-        ring.classList.remove('hide')
-        body.classList.remove('paused')
         time()
     }
 }
 
 const chronoStop = () => {
     if (!chronoIsStop) {
-        checkboxs.classList.remove('hide')
-        btn_slider.classList.remove('hide')
-        label_slider.classList.remove('hide')
-        labelCheckbox.classList.remove('hide')
-        form.classList.remove('hide')
-        ring.classList.add('hide')
-        body.classList.add('paused')
-
         minutes = btn_slider.value
         secondes = 0
         chrono.textContent = `${minutes}:${addZero(secondes)}`
@@ -92,20 +73,15 @@ const time = () => {
     }
 
     chrono.textContent = `${minutes}:${addZero(secondes)}`
-    
+
     if (minutes == 0 && secondes == 0) {
         chronoIsStop = true
-
         minutes = btn_slider.value
         secondes = 0
         chrono.textContent = `${minutes}:${addZero(secondes)}`
-        console.log(respireSeconde);
         clearTimeout(timeout)
         ring.classList.add('hide')
         body.classList.add('paused')
-        btn_slider.classList.remove('hide')
-        label_slider.classList.remove('hide')
-        labelCheckbox.classList.remove('hide')
         form.classList.remove('hide')
 
         if (ring.classList.contains('respire-55')) {
@@ -115,7 +91,6 @@ const time = () => {
         } else if (ring.classList.contains('respire-64')) {
             ring.classList.remove('respire-64')
         }
-        checkboxs.classList.remove('hide')
         btn.setAttribute('value', "Start")
     } else {
         timeout = setTimeout(time, 1000)
@@ -129,6 +104,9 @@ const time = () => {
     }
 }
 btn.addEventListener('click', ()=>{
+        form.classList.toggle('hide')
+        ring.classList.toggle('hide')
+        body.classList.toggle('paused')
         if (chronoIsStop) {
             chronoStart()
             btn.setAttribute('value', "Stop")
