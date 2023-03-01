@@ -13,10 +13,12 @@
         <div id="main" class="main">
             <div class="chrono" id="chrono"></div>
             <form action="" class="form" id="form">
-                <p id="label-btn-slider" class="label-btn-slider label"><strong>Choisir ton temps</strong></p>
-                <input type="range" min="1" max="6" value="5" id="btn-slider" class="btn-slider">
-                <p id="label-checkbox" class="label-checkbox label"><strong>Choisir ton rythme</strong></p>
+                <div id="slider" class="slider">
+                    <p id="label-btn-slider" class="label-btn-slider label"><strong>Choisir ton temps</strong></p>
+                    <input type="range" min="1" max="6" value="5" id="btn-slider" class="btn-slider">
+                </div>
                 <div id="checkboxs" class="checkboxs">
+                    <p id="label-checkbox" class="label-checkbox label"><strong>Choisir ton rythme</strong></p>
                     <div id="checkbox-one" class="checkbox checkbox-one">
                         <input type="radio" name="timeRadio" id="oneRadio" class="oneRadio radio" value="5" checked>
                         <label for="oneRadio" class="label-one label"><strong>5 - 0 - 5 - 0</strong></label>

@@ -79,7 +79,6 @@ const time = () => {
         minutes = btn_slider.value
         secondes = 0
         chrono.textContent = `${minutes}:${addZero(secondes)}`
-        console.log(respireSeconde);
         clearTimeout(timeout)
         ring.classList.add('hide')
         body.classList.add('paused')
