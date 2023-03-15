@@ -2,7 +2,7 @@ const chrono = document.getElementById('chrono')
 const ring = document.getElementById('ring')
 const btn = document.getElementById('btn')
 const btn_slider = document.getElementById('btn-slider')
-const form = document.getElementById('form')
+const choiceTimeRhythm = document.getElementById('choiceTimeRhythm')
 const body = document.querySelector('body')
 const radio = document.querySelectorAll('.radio')
 
@@ -82,7 +82,7 @@ const time = () => {
         clearTimeout(timeout)
         ring.classList.add('hide')
         body.classList.add('paused')
-        form.classList.remove('hide')
+        choiceTimeRhythm.classList.remove('hide')
 
         if (ring.classList.contains('respire-55')) {
             ring.classList.remove('respire-55')
@@ -104,7 +104,7 @@ const time = () => {
     }
 }
 btn.addEventListener('click', ()=>{
-        form.classList.toggle('hide')
+        choiceTimeRhythm.classList.toggle('hide')
         ring.classList.toggle('hide')
         body.classList.toggle('paused')
         if (chronoIsStop) {

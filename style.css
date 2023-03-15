@@ -66,7 +66,7 @@
     transform: translate(-50%, -50%);
 }
 
-.form{
+.choiceTimeRhythm{
     height: 50%;
     width: 100%;
     display: flex;
@@ -100,7 +100,8 @@
     width: 300px;
 }
 .label{
-    font-family: 'Fragmentcore';
+    font-family: 'Misto';
+    opacity: 0.4;
 }
 p.label{
     margin-bottom: 5px;
@@ -114,12 +115,12 @@ p.label{
     border-radius: 5px;
     background: #FFFFFF;
     outline: none;
-    opacity: 0.7;
+    opacity: 0.4;
     -webkit-transition: .2s;
     transition: opacity .2s;
 }
 .btn-slider:hover {
-    opacity: 1; 
+    opacity: 0.7; 
 }
 
 .btn-slider::-webkit-slider-thumb {
@@ -155,14 +156,14 @@ p.label{
 }
 .btn{
     color: #000;
-    font-family: 'Fragmentcore';
+    font-family: 'Misto';
     background-color: transparent;
     border: none;
     border-radius: 50%;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     text-align: center;
-    letter-spacing: 3px;
-    font-weight: 700;
+    letter-spacing: 1px;
+    opacity: 0.6;
     outline: none;
     cursor: pointer;
     transition: .2s ease-in-out;
