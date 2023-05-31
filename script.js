@@ -1,28 +1,28 @@
 const chrono = document.getElementById('chrono')
 const ring = document.getElementById('ring')
 const btn = document.getElementById('btn')
-const btn_slider = document.getElementById('btn-slider')
+const btnSlider = document.getElementById('btn-slider')
+const btnSliderTwo = document.getElementById('btn-slider-two')
 const choiceTimeBeat = document.getElementById('choiceTimeBeat')
-const body = document.querySelector('body')
-const radio = document.querySelectorAll('.radio')
-
-let minutes = btn_slider.value
+const container = document.querySelector('.container')
+let minutes = btnSlider.value
 let secondes = 0
-let respireSeconde;
+let respireSeconde = btnSliderTwo.value
 let timeout = 0
 let chronoIsStop = true
-
-btn.addEventListener("click", () => {
-    radio.forEach(function(e) {
-        if (e.checked) respireSeconde = e.value
-    });
-});
+const btnSliderTwoAll = document.querySelectorAll('.span-r')
 
 chrono.textContent = `${minutes}:00`
 
-btn_slider.oninput = function() {
+btnSlider.oninput = function() {
     chrono.textContent = `${this.value}:${addZero(secondes)}`;
     minutes = addZero(this.value)
+}
+btnSliderTwo.oninput = function() {
+    respireSeconde = btnSliderTwo.value
+    btnSliderTwoAll.forEach((b, i) => {
+        b.dataset.number != btnSliderTwo.value ? b.classList.add('slider-opacity') : b.classList.remove('slider-opacity')
+    })
 }
 
 ring.classList.add('hide')
@@ -36,7 +36,7 @@ const chronoStart = () => {
 
 const chronoStop = () => {
     if (!chronoIsStop) {
-        minutes = btn_slider.value
+        minutes = btnSlider.value
         secondes = 0
         chrono.textContent = `${minutes}:${addZero(secondes)}`
         chronoIsStop = true
@@ -76,13 +76,14 @@ const time = () => {
     
     if (minutes == 0 && secondes == 0) {
         chronoIsStop = true
-        minutes = btn_slider.value
+        minutes = btnSlider.value
         secondes = 0
         chrono.textContent = `${minutes}:${addZero(secondes)}`
         clearTimeout(timeout)
         ring.classList.add('hide')
-        body.classList.add('paused')
+        container.classList.add('paused')
         choiceTimeBeat.classList.remove('hide')
+        chrono.classList.remove('stroke-text')
 
         if (ring.classList.contains('respire-55')) {
             ring.classList.remove('respire-55')
@@ -94,19 +95,20 @@ const time = () => {
         btn.setAttribute('value', "Start")
     } else {
         timeout = setTimeout(time, 1000)
-        if (respireSeconde == 5) {
+        if (respireSeconde == 1) {
             ring.classList.add('respire-55')
-        } else if (respireSeconde == 4) {
+        } else if (respireSeconde == 2) {
             ring.classList.add('respire-46')
-        } else if (respireSeconde == 6) {
+        } else if (respireSeconde == 3) {
             ring.classList.add('respire-64')
         }
     }
 }
 btn.addEventListener('click', ()=>{
         choiceTimeBeat.classList.toggle('hide')
+        chrono.classList.toggle('stroke-text')
         ring.classList.toggle('hide')
-        body.classList.toggle('paused')
+        container.classList.toggle('paused')
         if (chronoIsStop) {
             chronoStart()
             btn.setAttribute('value', "Stop")

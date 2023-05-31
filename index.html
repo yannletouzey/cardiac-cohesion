@@ -8,39 +8,30 @@
         <link rel="icon" href="./img/logo-yl.ico" />
         <title>Cohésion cardiaque</title>
     </head>
-    <body id="body" class="body paused">
-        <header>
-            <h1 id="h1" class="h1">Cohesion cardiaque</h1>
-            <section id="ring" class="ring"></section>
-        </header>
-        <main id="main" class="main">
+    <body id="particles-js" class="body particles-js particles-js-canvas-el">
+        <div class="container paused">
+            <header>
+                <h1 id="h1" class="h1">Cohesion cardiaque</h1>
+                <section id="ring" class="ring"></section>
+            </header>
             <section class="chrono" id="chrono"></section>
             <section class="choiceTimeBeat" id="choiceTimeBeat">
                 <section id="slider" class="slider">
                     <p id="label-btn-slider" class="label-btn-slider label"><strong>Choisir ton temps</strong></p>
                     <input type="range" min="1" max="6" value="5" id="btn-slider" class="btn-slider">
                 </section>
-                <section id="checkboxs" class="checkboxs">
-                    <p id="label-checkbox" class="label-checkbox label"><strong>Choisir ton rythme</strong></p>
-                    <section id="checkbox-one" class="checkbox checkbox-one">
-                        <input type="radio" name="timeRadio" id="oneRadio" class="oneRadio radio" value="5" checked>
-                        <label for="oneRadio" class="label-one label"><strong>5 - 0 - 5 - 0</strong></label>
-                    </section>
-                    <section id="checkbox-two" class="checkbox checkbox-two">
-                        <input type="radio" name="timeRadio" id="twoRadio" class="twoRadio radio" value="4">
-                        <label for="twoRadio" class="label-two label"><strong>4 - 0 - 6 - 0</strong></label>
-                    </section>
-                    <section id="checkbox-three" class="checkbox checkbox-three">
-                        <input type="radio" name="timeRadio" id="threeRadio" class="threeRadio radio" value="6">
-                        <label for="threeRadio" class="label-three label"><strong>6 - 0 - 4 - 0</strong></label>
-                    </section>
+                <section id="slider-two" class="slider-two">
+                    <p id="label-btn-slider-two" class="label-btn-slider-two label"><strong>Choisir ton rhytme</strong></p>
+                    <p class="container-span-r"><span class="span-r span-r-one slider-opacity" data-number="1">5-0-5-0</span><span class="span-r span-r-two" data-number="2">4-0-6-0</span><span class="span-r span-r-three slider-opacity" data-number="3">6-0-4-0</span></p>
+                    <input type="range" min="1" max="3" value="2" id="btn-slider-two" class="btn-slider-two">
                 </section>
             </section>
             <section id="buttons" class="buttons">
                 <input type="button" id="btn" class="btn" value="Start">
             </section>
-        </main>
-        <footer></footer>
+        </div>
         <script src="script.js"></script>
+        <script src="./particles/particles.js"></script>
+        <script src="./particles/app.js"></script>
     </body>
 </html>
