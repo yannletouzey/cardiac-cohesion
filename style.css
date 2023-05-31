@@ -39,7 +39,6 @@
         background-size: 200% 200%;
         animation: gradient 15s ease infinite;
     box-sizing: border-box;
-    border: 1px solid red;
 }
 .h1{
     width: 100%;
