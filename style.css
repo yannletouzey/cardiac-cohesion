@@ -7,10 +7,6 @@
          url('fonts/Misto.ttf') format('truetype'),
          url('fonts/Misto.svg#Misto') format('svg');
 }
-@font-face {
-    font-family: 'Fragmentcore';
-    src: url('fonts/Fragmentcore.otf');
-}
 *{
     margin: 0;
     padding: 0;
@@ -133,20 +129,7 @@
 .btn-slider-two:hover {
     opacity: 0.7; 
 }
-.btn-slider-two::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 30px;
-    height: 32px;
-    border: 0;
-    background-image: url('img/logo-short-cream.svg');
-    background-color: transparent;
-    box-shadow: none;
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-    cursor: pointer;
-}
+
 .ring{
     position: absolute;
     border-radius: 50%;
@@ -166,7 +149,7 @@
     flex-direction: column;
     justify-content: space-around;
 }
-.slider, .checkboxs{
+.slider{
     width: 90%;
     margin: 1rem auto;
     text-align: center;
@@ -188,7 +171,33 @@
     width: 80px;
     height: 80px;
     margin: auto;
-    opacity: 0.5;
+    font-family: 'Misto';
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    text-align: center;
+    letter-spacing: 1px;
+    opacity: 0.6;
+    outline: none;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+    box-shadow: -3px -3px 20px rgba(255, 255, 255, .4),
+                -6px -6px 10px rgba(255, 255, 255, .3),
+                6px 6px 8px rgba(255, 255, 255, .075),
+                6px 6px 10px rgba(0, 0, 0, .15);
+}
+.btn:hover {
+    box-shadow: -2px -2px 6px rgba(255, 255, 255, .6),
+                -2px -2px 4px rgba(255, 255, 255, .4),
+                2px 2px 2px rgba(255, 255, 255, .05),
+                2px 2px 4px rgba(0, 0, 0, .1);
+}
+.btn:active {
+    box-shadow: inset -2px -2px 6px rgba(255, 255, 255, .7),
+                inset -2px -2px 4px rgba(255, 255, 255, .5),
+                inset 2px 2px 2px rgba(255, 255, 255, .075),
+                inset 2px 2px 4px rgba(0, 0, 0, .15);
 }
 .label-btn-slider{
     display: block;
@@ -219,7 +228,7 @@
     opacity: 0.7; 
 }
 
-.btn-slider::-webkit-slider-thumb {
+.btn-slider::-webkit-slider-thumb, .btn-slider-two::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 30px;
@@ -234,7 +243,7 @@
     cursor: pointer;
 }
 
-.btn-slider::-moz-range-thumb {
+.btn-slider::-moz-range-thumb, .btn-slider-two::-moz-range-thumb {
     width: 30px;
     height: 32px;
     border: 0;
@@ -246,54 +255,10 @@
     background-repeat: no-repeat;
     cursor: pointer;
 }
-.btn, .checkbox{
-    opacity: 1;
-    z-index: 1;
-}
-.btn{
-    color: #000;
-    font-family: 'Misto';
-    background-color: transparent;
-    border: none;
-    border-radius: 50%;
-    font-size: 0.8rem;
-    text-align: center;
-    letter-spacing: 1px;
-    opacity: 0.6;
-    outline: none;
-    cursor: pointer;
-    transition: .2s ease-in-out;
-    box-shadow: -3px -3px 20px rgba(255, 255, 255, .4),
-                -6px -6px 10px rgba(255, 255, 255, .3),
-                6px 6px 8px rgba(255, 255, 255, .075),
-                6px 6px 10px rgba(0, 0, 0, .15);
-}
-.btn:hover {
-    box-shadow: -2px -2px 6px rgba(255, 255, 255, .6),
-                -2px -2px 4px rgba(255, 255, 255, .4),
-                2px 2px 2px rgba(255, 255, 255, .05),
-                2px 2px 4px rgba(0, 0, 0, .1);
-}
-.btn:active {
-    box-shadow: inset -2px -2px 6px rgba(255, 255, 255, .7),
-                inset -2px -2px 4px rgba(255, 255, 255, .5),
-                inset 2px 2px 2px rgba(255, 255, 255, .075),
-                inset 2px 2px 4px rgba(0, 0, 0, .15);
-}
+
 .hide{
     opacity: -1;
     z-index: -1;
-}
-.checkbox{
-    width: 120px;
-    margin: auto;
-    display: flex;
-    justify-content: space-around;
-    margin: 5px auto;
-}
-input[type="checkbox"]:focus {
-    outline: max(2px, 0.15em) solid currentColor;
-    outline-offset: max(2px, 0.15em);
 }
 @keyframes rotate {
     0% {transform:rotate(0deg);}
