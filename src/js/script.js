@@ -105,16 +105,15 @@ const time = () => {
     }
 }
 btn.addEventListener('click', ()=>{
-        choiceTimeBeat.classList.toggle('hide')
-        chrono.classList.toggle('chrono__stroke-text')
-        ring.classList.toggle('hide')
-        container.classList.toggle('container__active')
-        if (chronoIsStop) {
-            chronoStart()
-            btn.setAttribute('value', "Stop")
-        } else {
-            chronoStop()
-            btn.setAttribute('value', "Start")
-        }
+    choiceTimeBeat.classList.toggle('hide')
+    chrono.classList.toggle('chrono__stroke-text')
+    ring.classList.toggle('hide')
+    container.classList.toggle('container__active')
+    if (chronoIsStop) {
+        chronoStart()
+        btn.setAttribute('value', "Stop")
+    } else {
+        chronoStop()
+        btn.setAttribute('value', "Start")
     }
-)
+})
