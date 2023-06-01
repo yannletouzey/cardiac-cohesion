@@ -81,7 +81,7 @@ const time = () => {
         chrono.textContent = `${minutes}:${addZero(secondes)}`
         clearTimeout(timeout)
         ring.classList.add('hide')
-        container.classList.add('paused')
+        container.classList.add('container__active')
         choiceTimeBeat.classList.remove('hide')
         chrono.classList.remove('chrono__stroke-text')
 
@@ -108,7 +108,7 @@ btn.addEventListener('click', ()=>{
         choiceTimeBeat.classList.toggle('hide')
         chrono.classList.toggle('chrono__stroke-text')
         ring.classList.toggle('hide')
-        container.classList.toggle('paused')
+        container.classList.toggle('container__active')
         if (chronoIsStop) {
             chronoStart()
             btn.setAttribute('value', "Stop")

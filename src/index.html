@@ -9,11 +9,10 @@
         <link rel="icon" href="./img/logo-yl.ico" />
         <title>Cohésion cardiaque</title>
     </head>
-    <body>
-        <div id="particles-js" class="particles-js particles-js-canvas-el">
-        <div class="container paused">
-                <h1 id="container__title" class="container__title">Cohesion cardiaque</h1>
-                <div id="ring" class="ring"></div>
+    <body id="particles-js" class="particles-js">
+        <div class="container container__active">
+            <h1 id="container__title" class="container__title">Cohesion cardiaque</h1>
+            <div id="ring" class="ring"></div>
             <div class="chrono" id="chrono"></div>
             <div class="choiceTimeBeat" id="choiceTimeBeat">
                 <div id="slider" class="slider">
@@ -33,7 +32,6 @@
             <div id="buttons" class="buttons">
                 <input type="button" id="buttons__btn" class="buttons__btn" value="Start">
             </div>
-        </div>
         </div>
         <script src="./js/script.js"></script>
         <script src="./js/particles/particles.js"></script>
