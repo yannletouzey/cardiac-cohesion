@@ -1,8 +1,8 @@
 const chrono = document.getElementById('chrono')
 const ring = document.getElementById('ring')
-const btn = document.getElementById('btn')
-const btnSlider = document.getElementById('btn-slider')
-const btnSliderTwo = document.getElementById('btn-slider-two')
+const btn = document.getElementById('buttons__btn')
+const btnSlider = document.getElementById('slider__range')
+const btnSliderTwo = document.getElementById('slider__range-two')
 const choiceTimeBeat = document.getElementById('choiceTimeBeat')
 const container = document.querySelector('.container')
 let minutes = btnSlider.value
@@ -10,7 +10,7 @@ let secondes = 0
 let respireSeconde = btnSliderTwo.value
 let timeout = 0
 let chronoIsStop = true
-const btnSliderTwoAll = document.querySelectorAll('.span-r')
+const btnSliderTwoAll = document.querySelectorAll('.slider__span')
 
 chrono.textContent = `${minutes}:00`
 
@@ -21,7 +21,7 @@ btnSlider.oninput = function() {
 btnSliderTwo.oninput = function() {
     respireSeconde = btnSliderTwo.value
     btnSliderTwoAll.forEach((b, i) => {
-        b.dataset.number != btnSliderTwo.value ? b.classList.add('slider-opacity') : b.classList.remove('slider-opacity')
+        b.dataset.number != btnSliderTwo.value ? b.classList.add('slider__opacity') : b.classList.remove('slider__opacity')
     })
 }
 
@@ -83,7 +83,7 @@ const time = () => {
         ring.classList.add('hide')
         container.classList.add('paused')
         choiceTimeBeat.classList.remove('hide')
-        chrono.classList.remove('stroke-text')
+        chrono.classList.remove('chrono__stroke-text')
 
         if (ring.classList.contains('respire-55')) {
             ring.classList.remove('respire-55')
@@ -106,7 +106,7 @@ const time = () => {
 }
 btn.addEventListener('click', ()=>{
         choiceTimeBeat.classList.toggle('hide')
-        chrono.classList.toggle('stroke-text')
+        chrono.classList.toggle('chrono__stroke-text')
         ring.classList.toggle('hide')
         container.classList.toggle('paused')
         if (chronoIsStop) {

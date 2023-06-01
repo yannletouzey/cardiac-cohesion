@@ -1,0 +1,81 @@
+.ring{
+    position: absolute;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+    opacity: 0.3;
+}
+
+.choiceTimeBeat{
+    min-height: 18rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.paused {
+    animation-play-state: paused;
+}
+.hide{
+    opacity: -1;
+    z-index: -1;
+}
+
+.respire-55{
+    animation: respire_55 10s linear infinite;
+    transform-origin: center;
+}
+@keyframes respire_55{
+    0%{
+        scale: 1;
+        transform-origin: left top;
+    }
+    50%{
+        scale: 2;
+        transform-origin: left top;
+    }
+    100%{
+        scale: 1;
+        transform-origin: left top;
+    }
+}
+.respire-46{
+    animation: respire_46 10s linear infinite ;
+}
+@keyframes respire_46{
+    0%{
+        scale: 1;
+        transform-origin: left top;
+    }
+    40%{
+        scale: 2;
+        transform-origin: left top;
+        border: 10px solid #000;
+    }
+    100%{
+        scale: 1;
+        transform-origin: left top;
+    }
+}
+.respire-64{
+    animation: respire_64 10s linear infinite ;
+}
+@keyframes respire_64{
+    0%{
+        scale: 1;
+        transform-origin: left top;
+    }
+    60%{
+        scale: 2;
+        transform-origin: left top;
+        border: 10px solid #000;
+    }
+    100%{
+        scale: 1;
+        transform-origin: left top;
+    }
+}

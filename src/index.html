@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="./scss/_index.scss">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="./img/logo-yl.ico" />
+        <title>Cohésion cardiaque</title>
+    </head>
+    <body id="particles-js" class="body particles-js particles-js-canvas-el">
+        <div class="container paused">
+            <!-- <header> -->
+                <h1 id="container__title" class="container__title">Cohesion cardiaque</h1>
+                <div id="ring" class="ring"></div>
+            <!-- </header> -->
+            <div class="chrono" id="chrono"></div>
+            <div class="choiceTimeBeat" id="choiceTimeBeat">
+                <div id="slider" class="slider">
+                    <p id="slider__label" class="slider__label"><strong>Choisir ton temps</strong></p>
+                    <input type="range" min="1" max="6" value="5" id="slider__range" class="slider__range">
+                </div>
+                <div id="slider-two" class="slider">
+                    <p id="slider__label-two" class="slider__label"><strong>Choisir ton rythme</strong></p>
+                    <p class="slider__label--rythme">
+                        <span class="slider__span slider__span-one slider__opacity" data-number="1">5-0-5-0</span>
+                        <span class="slider__span slider__span-two" data-number="2">4-0-6-0</span>
+                        <span class="slider__span slider__span-three slider__opacity" data-number="3">6-0-4-0</span>
+                    </p>
+                    <input type="range" min="1" max="3" value="2" id="slider__range-two" class="slider__range slider__range-two">
+                </div>
+            </div>
+            <div id="buttons" class="buttons">
+                <input type="button" id="buttons__btn" class="buttons__btn" value="Start">
+            </div>
+        </div>
+        <script src="./js/script.js"></script>
+        <script src="./js/particles/particles.js"></script>
+        <script src="./js/particles/app.js"></script>
+    </body>
+</html>
