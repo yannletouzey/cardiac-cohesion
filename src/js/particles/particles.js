@@ -8,7 +8,6 @@
 /* ----------------------------------------------- */
 
 var pJS = function(tag_id, params){
-  // const canvas_el = document.querySelector('#'+tag_id+' > .particles-js-canvas-el')
 
   var canvas_el = document.querySelector('#'+tag_id+' > .particles-js-canvas-el');
 
