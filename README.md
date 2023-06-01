@@ -4,4 +4,4 @@
 [Cardiac cohesion](https://cardiac-cohesion.vercel.app)
 
 
-![screen-cardiac-cohesion](img/screenshot-cardiac-cohesion.png)
+![screen-cardiac-cohesion](./src/img/screenshot-cardiac-cohesion.png)
