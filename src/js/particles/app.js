@@ -1,130 +1,86 @@
-/* -----------------------------------------------
-/* How to use? : Check the GitHub README
-/* ----------------------------------------------- */
+const canvas = document.getElementById('canvas')
+const ctx = canvas.getContext('2d')
+canvas.width = window.innerWidth
+canvas.height = window.innerHeight
 
-/* To load a config file (particles.json) you need to host this demo (MAMP/WAMP/local)... */
-/*
-particlesJS.load('particles-js', 'particles.json', function() {
-  console.log('particles.js loaded - callback');
-});
-*/
 
-/* Otherwise just put the config content (json): */
+ctx.strokeStyle = 'white'
 
-particlesJS('particles-js',{
-    "particles": {
-      "number": {
-        "value": 200,
-        "density": {
-          "enable": true,
-          "value_area": 500
-        }
-      },
-      "color": {
-        "value": "#ceafaf"
-      },
-      "shape": {
-        "type": "start",
-        "stroke": {
-          "width": 0,
-          "color": "#000000"
-        },
-        "polygon": {
-          "nb_sides": 3
-        },
-        "image": {
-          "src": "img/github.svg",
-          "width": 100,
-          "height": 100
-        }
-      },
-      "opacity": {
-        "value": 0.2,
-        "random": true,
-        "anim": {
-          "enable": false,
-          "speed": 1,
-          "opacity_min": 0.1,
-          "sync": false
-        }
-      },
-      "size": {
-        "value": 6,
-        "random": true,
-        "anim": {
-          "enable": false,
-          "speed": 50,
-          "size_min": 0.1,
-          "sync": false
-        }
-      },
-      "line_linked": {
-        "enable": true,
-        "distance": 100,
-        "color": "#fff",
-        "opacity": 0.3,
-        "width": 1
-      },
-      "move": {
-        "enable": true,
-        "speed": 2,
-        "direction": "none",
-        "random": false,
-        "straight": false,
-        "out_mode": "out",
-        "attract": {
-          "enable": false,
-          "rotateX": 600,
-          "rotateY": 1200
-        }
-      }
-    },
-    "interactivity": {
-      "detect_on": "canvas",
-      "events": {
-        "onhover": {
-          "enable": true,
-          "mode": "grab"
-        },
-        "onclick": {
-          "enable": true,
-          "mode": "push"
-        },
-        "resize": true
-      },
-      "modes": {
-        "grab": {
-          "distance": 400,
-          "line_linked": {
-            "opacity": 0.5
-          }
-        },
-        "bubble": {
-          "distance": 400,
-          "size": 40,
-          "duration": 2,
-          "opacity": 8,
-          "speed": 3
-        },
-        "repulse": {
-          "distance": 100
-        },
-        "push": {
-          "particles_nb": 4
-        },
-        "remove": {
-          "particles_nb": 2
-        }
-      }
-    },
-    "retina_detect": true,
-    "config_demo": {
-      "hide_card": false,
-      "background_color": "#b61924",
-      "background_image": "",
-      "background_position": "50% 50%",
-      "background_repeat": "no-repeat",
-      "background_size": "cover"
+ctx.lineWidth = 0.2
+const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height)
+gradient.addColorStop(0, "white")
+gradient.addColorStop(0.5, "grey")
+gradient.addColorStop(1, "black")
+ctx.fillStyle = gradient
+class Particle {
+    constructor(effect){
+        this.effect = effect
+        this.radius = Math.random() * 10 + 5
+        this.x = this.radius + Math.random() * (this.effect.width - this.radius * 2)
+        this.y = this.radius + Math.random() * (this.effect.height - this.radius * 2)
+        this.vx = Math.random() * 1 - 0.5
+        this.vy = Math.random() * 1 - 0.5
     }
-  }
-);
+    draw(context){
+        // context.fillStyle = 'hsl('+ this.x * 0.5 +', 100%, 50%)'
+        context.beginPath()
+        context.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
+        context.fill()
+        context.stroke()
+    }
+    update(){
+        this.x+=this.vx
+        if ((this.x + this.radius) > this.effect.width || (this.x - this.radius) < 0) {
+            this.vx *= -1
+        }
+        this.y+=this.vy
+        if ((this.y + this.radius) > this.effect.height || (this.y - this.radius) < 0) {
+            this.vy *= -1
+        }
+    }
+}
+class Effect {
+    constructor(canvas){
+        this.canvas = canvas
+        this.width = this.canvas.width
+        this.height = this.canvas.height
+        this.particles = []
+        this.numberOfParticles = 200
+        this.createParticle()
+    }
+    createParticle(){
+        for (let index = 0; index < this.numberOfParticles; index++) {
+            this.particles.push(new Particle(this))
+        }
+    }
+    handleParticle(context){
+        this.particles.forEach(p => {
+            p.draw(context)
+            p.update()
+        })
+        this.connectParticle(context)
+    }
+    connectParticle(context){
+        const maxDistance = 80
+        for (let i = 0; i < this.particles.length; i++) {
+            for (let j = 0; j < this.particles.length; j++) {
+                const dx = this.particles[i].x - this.particles[j].x
+                const dy = this.particles[i].y - this.particles[j].y
+                const distance = Math.hypot(dx, dy)
+                if (distance < maxDistance) {
+                    context.beginPath()
+                    context.moveTo(this.particles[i].x, this.particles[i].y)
+                    context.lineTo(this.particles[j].x, this.particles[j].y)
+                    context.stroke()
+                }
+            }
+        }
+    }
+}
+const effect = new Effect(canvas)
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    effect.handleParticle(ctx)
+    requestAnimationFrame(animate)
+}
+animate()
