@@ -1,4 +1,4 @@
-const canvas = document.getElementById('canvas')
+const canvas = document.querySelector('#canvas')
 const ctx = canvas.getContext('2d')
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight
@@ -8,14 +8,15 @@ ctx.strokeStyle = 'white'
 
 ctx.lineWidth = 0.2
 const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height)
-gradient.addColorStop(0, "white")
-gradient.addColorStop(0.5, "grey")
-gradient.addColorStop(1, "black")
-ctx.fillStyle = gradient
+// gradient.addColorStop(0, "white")
+// gradient.addColorStop(0.5, "lightgrey")
+// gradient.addColorStop(1, "grey")
+ctx.fillStyle = 'lightgrey'
+ctx.strokeLine = 2
 class Particle {
     constructor(effect){
         this.effect = effect
-        this.radius = Math.random() * 10 + 5
+        this.radius = Math.random() * 6 + 4
         this.x = this.radius + Math.random() * (this.effect.width - this.radius * 2)
         this.y = this.radius + Math.random() * (this.effect.height - this.radius * 2)
         this.vx = Math.random() * 1 - 0.5
