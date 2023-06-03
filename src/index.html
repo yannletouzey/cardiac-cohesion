@@ -11,6 +11,12 @@
     </head>
     <body id="body">
         <canvas id="canvas" class="canvas"></canvas>
+        <audio id="audioIn" class="audio">
+            <source src="./sound/int.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="audioOut" class="audio">
+            <source src="./sound/int.mp3" type="audio/mpeg">
+        </audio>
         <div class="container container__active">
             <h1 id="container__title" class="container__title">Cohesion cardiaque</h1>
             <div id="ring" class="ring"></div>
@@ -28,6 +34,11 @@
                         <span class="slider__span slider__span-three slider__opacity" data-number="3">6-0-4-0</span>
                     </p>
                     <input type="range" min="1" max="3" value="2" id="slider__range-two" class="slider__range slider__range-two">
+                </div>
+                <div id="checkbox" class="checkbox">
+                    <input type="checkbox" name="checkbox__audio" id="checkbox__audio" class="checkbox__audio">
+                    <label for="checkbox__audio" class="checkbox__label"></label>
+                    <p>Activer le son</p>
                 </div>
             </div>
             <div id="buttons" class="buttons">

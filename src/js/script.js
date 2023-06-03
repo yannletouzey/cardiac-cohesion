@@ -13,7 +13,28 @@ let secondes = 0
 let respireSeconde = btnSliderTwo.value
 let timeout = 0
 let chronoIsStop = true
-const btnSliderTwoAll = document.querySelectorAll('.slider__span')
+const sliderSpan = document.querySelectorAll('.slider__span')
+let activeAudio = false
+const choiceAudio = document.getElementById('checkbox__audio')
+choiceAudio.addEventListener('change', () => {
+    if (choiceAudio.checked) {
+        activeAudio = true
+    } else {
+        activeAudio = false
+    }
+})
+let stateAudio = false
+const playAudio = () => {
+    stateAudio = true
+    const audio = document.querySelector('#audioIn');
+    audio.play();
+}
+const pauseAudio = () => {
+    stateAudio = false
+    const audio = document.querySelector('#audioIn');
+    audio.currentTime = 0;
+    audio.pause();
+}
 
 chrono.textContent = `${minutes}:00`
 
@@ -23,7 +44,7 @@ btnSlider.oninput = function() {
 }
 btnSliderTwo.oninput = function() {
     respireSeconde = btnSliderTwo.value
-    btnSliderTwoAll.forEach((b, i) => {
+    sliderSpan.forEach((b, i) => {
         b.dataset.number != btnSliderTwo.value ? b.classList.add('slider__opacity') : b.classList.remove('slider__opacity')
     })
 }
@@ -51,6 +72,7 @@ const chronoStop = () => {
             ring.classList.remove('respire-64')
         }
         clearTimeout(timeout)
+        pauseAudio()
     }
 }
 
@@ -96,8 +118,14 @@ const time = () => {
             ring.classList.remove('respire-64')
         }
         btn.setAttribute('value', "Start")
+        if (activeAudio) {
+            pauseAudio()
+        }
     } else {
         timeout = setTimeout(time, 1000)
+        if (activeAudio) {
+            playAudio()
+        }
         if (respireSeconde == 1) {
             ring.classList.add('respire-55')
         } else if (respireSeconde == 2) {
@@ -107,7 +135,15 @@ const time = () => {
         }
     }
 }
+
 btn.addEventListener('click', ()=>{
+    if (activeAudio) {
+        if (stateAudio) {
+            stateAudio = false
+        } else {
+            stateAudio = true
+        }
+    }
     choiceTimeBeat.classList.toggle('hide')
     chrono.classList.toggle('chrono__stroke-text')
     ring.classList.toggle('hide')
