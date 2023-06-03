@@ -6,6 +6,7 @@ export const particles = () => {
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
     
+    
     gradient.addColorStop(0, "#fab7a3")
     gradient.addColorStop(0.33, "#f893b9")
     gradient.addColorStop(0.66, "#84d9f8")
