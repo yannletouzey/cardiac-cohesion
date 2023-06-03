@@ -2,13 +2,13 @@
     display: flex;
     justify-content: center;
     align-content: center;
+    margin-left: 1rem;
     &__audio{
         display: none;
         opacity: 0;
         visibility: hidden;
     }
     &__label{
-        // margin: 0 0.5rem;
         width: 1.5rem;
         height: 1.5rem;
         display: flex;
@@ -27,7 +27,8 @@
         opacity: 0.6;
         margin: 0.3rem 0;
         width: 11rem;
-        text-align: right;
+        text-align: left;
         font-size: 0.9rem;
+        margin-left: 1rem;
     }
 }
