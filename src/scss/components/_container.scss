@@ -11,11 +11,14 @@
     justify-content: space-around;
     background: linear-gradient(
         -45deg, 
+        #ffeecc,
         #fab7a3, 
         #f893b9, 
         #84d9f8, 
-        #6ff8d8
+        #6ff8d8,
+        #c4f9c9,
     );
+    opacity: 0.9;
     background-size: 200% 200%;
     animation: gradient 15s ease infinite;
     &__active {
