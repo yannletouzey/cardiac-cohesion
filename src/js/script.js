@@ -17,7 +17,6 @@ const sliderSpan = document.querySelectorAll('.slider__span')
 let activeAudio = false
 const choiceAudio = document.getElementById('checkbox__audio')
 const labelChoiseAudio = document.getElementById('checkbox__p')
-console.log(labelChoiseAudio);
 choiceAudio.addEventListener('change', () => {
     if (choiceAudio.checked) {
         labelChoiseAudio.textContent = "Desactiver le son"
